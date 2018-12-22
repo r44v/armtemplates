@@ -1,0 +1,123 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+        "networkInterfaceName": {
+            "value": "vm-test-we-vmexample871"
+        },
+        "networkSecurityGroupName": {
+            "value": "vm-test-we-vmexample-0-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                },
+                {
+                    "name": "HTTPS",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 340,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "sn-test-we-vmexample-0"
+        },
+        "virtualNetworkName": {
+            "value": "vn-test-we-vmexample-0"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/22"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "sn-test-we-vmexample-0",
+                    "properties": {
+                        "addressPrefix": "10.0.1.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "ip-test-we-vmexample-0"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "vm-test-we-vmexample-0"
+        },
+        "virtualMachineRG": {
+            "value": "rg-test-we-vmexample-0"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "adminuser"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "osDiskSizeGB": {
+            "value": 50
+        },
+        "imageReference": {
+            "value": {
+                "publisher": "OpenLogic",
+                "offer": "CentOS-LVM",
+                "sku": "7-LVM",
+                "version": "latest"
+            }
+        },
+        "base64script": {
+            "value": ""
+        },
+        "runBase64script": {
+            "value": false
+        }
+    }
+}

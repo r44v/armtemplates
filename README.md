@@ -31,3 +31,7 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 |Azure Search               |srch      |
 |OMS Workspace              |oms       |
 |App Service Environment    |ase       |
+
+# Notes
+
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions
