@@ -114,7 +114,10 @@
                       "value": "[parameters('virtualNetworkName')]"
                     }
                   }
-            }
+            },
+            "dependsOn": [
+                "[parameters('publicIpAddressName')]"
+            ]
         },
         {
             "name": "[parameters('publicIpAddressName')]",
