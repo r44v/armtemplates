@@ -148,7 +148,7 @@
                     "vmSize": "[parameters('virtualMachineSize')]"
                 },
                 "storageProfile": {
-                    "osDisk": {,
+                    "osDisk": {
                         "name": "[parameters('osDiskName')]",
                         "createOption": "fromImage",
                         "managedDisk": {
