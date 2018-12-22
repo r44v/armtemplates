@@ -44,6 +44,9 @@
         "osDiskSizeGB": {
             "type": "int"
         },
+        "osDiskName": {
+            "value": "stromg"
+        },
         "virtualMachineSize": {
             "type": "string"
         },
@@ -145,7 +148,8 @@
                     "vmSize": "[parameters('virtualMachineSize')]"
                 },
                 "storageProfile": {
-                    "osDisk": {
+                    "osDisk": {,
+                        "name": "[parameters('osDiskName')]",
                         "createOption": "fromImage",
                         "managedDisk": {
                             "storageAccountType": "[parameters('osDiskType')]"

@@ -105,6 +105,9 @@
         "osDiskSizeGB": {
             "value": 50
         },
+        "osDiskName": {
+            "value": "osd-test-we-vmexample-0"
+        },
         "imageReference": {
             "value": {
                 "publisher": "OpenLogic",
