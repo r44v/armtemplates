@@ -168,7 +168,7 @@
             "resources": [
                 {
                     "condition": "[parameters('runBase64script')]",
-                    "name": "[concat(parameters('virtualMachineName'),'/CustomScript')]",
+                    "name": "[concat(parameters('virtualMachineName'),'-CustomScript')]",
                     "type": "extensions",
                     "location": "[variables('location')]",
                     "apiVersion": "2015-06-15",
