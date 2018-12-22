@@ -45,7 +45,7 @@
             "type": "int"
         },
         "osDiskName": {
-            "value": "stromg"
+            "type": "string"
         },
         "virtualMachineSize": {
             "type": "string"
