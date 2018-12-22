@@ -93,6 +93,9 @@
         "virtualMachineSize": {
             "value": "Standard_D2s_v3"
         },
+        "virtualMachineHostname": {
+            "value": "vmflask"
+        },
         "adminUsername": {
             "value": "adminuser"
         },
