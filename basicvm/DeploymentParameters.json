@@ -2,9 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "westeurope"
-        },
         "networkInterfaceName": {
             "value": "vm-test-we-vmexample871"
         },
@@ -118,6 +115,14 @@
         },
         "runBase64script": {
             "value": false
+        },
+        "tags": {
+            "value": {
+                "project": "vmexample",
+                "environment": "test",
+                "region": "westeurope"
+            }
         }
     }
+}
 }
