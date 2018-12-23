@@ -8,20 +8,11 @@
         "networkSecurityGroupName": {
             "type": "string"
         },
-        "networkSecurityGroupRules": {
-            "type": "array"
-        },
         "subnetName": {
             "type": "string"
         },
         "virtualNetworkName": {
             "type": "string"
-        },
-        "addressPrefixes": {
-            "type": "array"
-        },
-        "subnetAddressPrefix": {
-            "type": "array"
         },
         "publicIpAddressName": {
             "type": "string"
@@ -33,9 +24,6 @@
             "type": "string"
         },
         "virtualMachineName": {
-            "type": "string"
-        },
-        "virtualMachineRG": {
             "type": "string"
         },
         "osDiskType": {
@@ -56,7 +44,7 @@
         "adminUsername": {
             "type": "string"
         },
-        "adminPassword": {
+        "adminPublicKey": {
             "type": "secureString"
         },
         "base64script": {
@@ -80,45 +68,23 @@
     },
     "resources": [
         {
-            "name": "vnetDeployment",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
+            "name": "[parameters('publicIpAddressName')]",
+            "type": "Microsoft.Network/publicIpAddresses",
+            "apiVersion": "2018-08-01",
+            "location": "[variables('location')]",
             "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/r44v/armtemplates/master/vnet/DeploymentTemplate.json"
-                },
-                "parameters": {
-                    "networkSecurityGroupName": {
-                        "value": "[parameters('networkSecurityGroupName')]"
-                    },
-                    "virtualNetworkName": {
-                        "value": "[parameters('virtualNetworkName')]"
-                    },
-                    "subnetName": {
-                        "value": "[parameters('subnetName')]"
-                    },
-                    "subnetAddressPrefix": {
-                        "value": "[parameters('subnetAddressPrefix')]"
-                    },
-                    "tags": {
-                        "value": "[parameters('tags')]"
-                    }
-                }
+                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
             },
-            "dependsOn": [
-                "[parameters('publicIpAddressName')]"
-            ]
+            "sku": {
+                "name": "[parameters('publicIpAddressSku')]"
+            },
+            "tags": "[parameters('tags')]"
         },
         {
             "name": "[parameters('networkInterfaceName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2018-04-01",
             "location": "[variables('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-            ],
             "properties": {
                 "ipConfigurations": [
                     {
@@ -138,19 +104,9 @@
                     "id": "[variables('nsgId')]"
                 }
             },
-            "tags": "[parameters('tags')]"
-        },
-        {
-            "name": "[parameters('publicIpAddressName')]",
-            "type": "Microsoft.Network/publicIpAddresses",
-            "apiVersion": "2018-08-01",
-            "location": "[variables('location')]",
-            "properties": {
-                "publicIpAllocationMethod": "[parameters('publicIpAddressType')]"
-            },
-            "sku": {
-                "name": "[parameters('publicIpAddressSku')]"
-            },
+            "dependsOn": [
+                "[parameters('publicIpAddressName')]"
+            ],
             "tags": "[parameters('tags')]"
         },
         {
@@ -158,9 +114,6 @@
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2018-06-01",
             "location": "[variables('location')]",
-            "dependsOn": [
-                "vnetDeployment"
-            ],
             "properties": {
                 "hardwareProfile": {
                     "vmSize": "[parameters('virtualMachineSize')]"
@@ -186,9 +139,22 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineHostname')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                                    "keyData": "[parameters('adminPublicKey')]"
+                                }
+                            ]
+                        }
+                    }
                 }
             },
+            "dependsOn": [
+                "[parameters('networkInterfaceName')]"
+            ],
             "tags": "[parameters('tags')]",
             "resources": [
                 {

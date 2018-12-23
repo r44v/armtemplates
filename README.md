@@ -41,9 +41,10 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 |Resource Type              |Short Code|
 |---------------------------|----------|
 |Resource Group             |rsg       |
-|Virtual Machine(linux/win) |vmw/vml   |
+|Virtual Machine(linux/win) |vml/vmw   |
 |Storage Account            |stg       |
 |Virtual Network            |vnt       |
+|Subnet                     |snt       |
 |Network Interface          |nif       |
 |Network Security Group     |nsg       |
 |Public IP Address          |pip       |
@@ -78,3 +79,9 @@ https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-tem
 https://azure.microsoft.com/en-gb/global-infrastructure/regions/
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions
 https://www.google.com/search?client=firefox-b-ab&q=germany+short+form
+
+Some Azure RM commands for testing
+
+```
+Test-AzureRmResourceGroupDeployment -ResourceGroupName "" -TemplateFile "" -TemplateParameterFile ""
+```

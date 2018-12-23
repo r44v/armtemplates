@@ -1,0 +1,72 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminPublicKey": {
+            "value": "ssh-rsa <lets keep this out of the public eye for now>"
+        },
+        "adminUsername": {
+            "value": "adminuser"
+        },
+        "base64script": {
+            "value": ""
+        },
+        "imageReference": {
+            "value": {
+                "publisher": "OpenLogic",
+                "offer": "CentOS",
+                "sku": "7.5",
+                "version": "latest"
+            }
+        },
+        "networkInterfaceName": {
+            "value": "examplex-test-weeu-nic-0"
+        },
+        "networkSecurityGroupName": {
+            "value": "examplex-test-weeu-nsg-0"
+        },
+        "osDiskName": {
+            "value": "examplex-test-weeu-osd-0"
+        },
+        "osDiskSizeGB": {
+            "value": 50
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "publicIpAddressName": {
+            "value": "examplex-test-weeu-pip-0"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "runBase64script": {
+            "value": false
+        },
+        "subnetName": {
+            "value": "examplex-test-weeu-snt-0"
+        },
+        "tags": {
+            "value": {
+                "project": "vmexample",
+                "environment": "test",
+                "region": "westeurope"
+            }
+        },
+        "virtualMachineHostname": {
+            "value": "examplex-test-weeu-vml-0"
+        },
+        "virtualMachineName": {
+            "value": "examplex-test-weeu-vml-0"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1s"
+        },
+        "virtualNetworkName": {
+            "value": "examplex-test-weeu-vnet-0"
+        }
+    }
+}
