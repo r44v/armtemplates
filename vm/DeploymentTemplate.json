@@ -44,6 +44,9 @@
         "adminUsername": {
             "type": "string"
         },
+        "adminPassword": {
+            "type": "secureString"
+        },
         "adminPublicKey": {
             "type": "secureString"
         },
@@ -139,6 +142,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineHostname')]",
                     "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": true,
                         "ssh": {
