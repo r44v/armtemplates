@@ -8,17 +8,17 @@ I prefer having all project related resources in the same resource group and hav
 everyname should be limited to 24 characters
 
 ```
-<owner(3)>-<project-name(8)>-<environment(4)>-<region(4)>-<resource-type(3)>-<instancenumber(1)>
+<project-name(8)>-<environment(4)>-<region(4)>-<resource-type(3)>-<instancenumber(1)>
 ```
 
 ## Examples
 
 Some examples
 ```
-ano-vmtestxx-test-weeu-rsg-0
-ano-vmtestxx-test-weeu-vml-0
-ano-vmtestxx-test-weeu-vnt-0
-ano-vmtestxx-test-weeu-pip-0
+vmtestxx-test-weeu-rsg-0
+vmtestxx-test-weeu-vml-0
+vmtestxx-test-weeu-vnt-0
+vmtestxx-test-weeu-pip-0
 ```
 
 ## project name
