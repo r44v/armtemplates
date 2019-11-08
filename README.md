@@ -1,24 +1,42 @@
 # armtemplates
+
 A repo with public arm templates to link to azure devops services
 
-# Naming conventions
+# Updates
 
-I prefer having all project related resources in the same resource group and having the same regional location for these resourses.
+**20191108**
+
+Reworked standard
+
+* Added owner identifier
+* removed dash between owner identifier and project name
+* project name is now 7 characters
+* Decreased environment to single character
+* Increased resource-type with 1 character (now 4) and reworked short codes to fit standard
+
+# Naming conventions
 
 everyname should be limited to 24 characters
 
 ```
-<project-name(8)>-<environment(4)>-<region(4)>-<resource-type(3)>-<instancenumber(1)>
+<owner-identifier(3)><project-name(7)>-<environment(1)>-<region(4)>-<resource-type(4)>-<instancenumber(1)>
 ```
 
 ## Examples
 
-Some examples
+Some examples (resources required for moest webapps)
 ```
-vmtestxx-test-weeu-rsg-0
-vmtestxx-test-weeu-vml-0
-vmtestxx-test-weeu-vnt-0
-vmtestxx-test-weeu-pip-0
+r44todoapp-t-weeu-rsgp-0
+r44todoapp-t-weeu-wapp-0
+r44todoapp-t-weeu-wasp-0
+r44todoapp-t-weeu-msql-0
+r44todoapp-t-weeu-mdbs-0
+
+r44todoapp-p-weeu-rsgp-0
+r44todoapp-p-weeu-wapp-0
+r44todoapp-p-weeu-wasp-0
+r44todoapp-p-weeu-msql-0
+r44todoapp-p-weeu-mdbs-0
 ```
 
 ## project name
@@ -28,11 +46,10 @@ Make the project name 8 characters long and right pad with x's
 ## environment names
 
 environments:
-- dev1 (Development + number)
-- test (Testing)
-- accp (Acceptence)
-- stag (Staging)
-- prod (Production)
+- d (Development)
+- t (Testing)
+- a (Acceptence)
+- p (Production)
 
 ## Resource names
 
@@ -40,19 +57,34 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 
 |Resource Type              |Short Code|
 |---------------------------|----------|
-|Resource Group             |rsg       |
-|Virtual Machine(linux/win) |vml/vmw   |
-|Storage Account            |stg       |
-|Virtual Network            |vnt       |
-|Subnet                     |snt       |
-|Network Interface          |nif       |
-|Network Security Group     |nsg       |
-|Public IP Address          |pip       |
-|App Service                |app       |
-|App Service Plan           |asp       |
-|Key Vault                  |kvt       |
-|Cosmos DB                  |cdb       |
-|Azure SQL Server           |sql       |
+|API Management             |apim      |
+|App Service                |wapp      |
+|App Service Plan           |wasp      |
+|Azure App function         |fapp      |
+|Azure Container Instance   |acix      |
+|Azure Container registery  |acrx      |
+|Azure Data Factory         |adfx      |
+|Azure Kubertnetes Service  |aksx      |
+|Azure MySQL Database       |msql      |
+|Azure MySQL Server         |mdbs      |
+|Azure Postgres Database    |psql      |
+|Azure Postgres Server      |pdbs      |
+|Azure SQL Databse          |asql      |
+|Azure SQL Server           |adbs      |
+|Azure Synapse Analytics    |adwh      |
+|Cosmos DB                  |cosm      |
+|Data Lake Storage          |lake      |
+|Key Vault                  |keyv      |
+|Network Interface          |nint      |
+|Network Security Group     |nsgp      |
+|Public IP Address          |pipx      |
+|Resource Group             |rsgp      |
+|Send Grid                  |sgrd      |
+|Storage Account            |stor      |
+|Subnet                     |snet      |
+|Virtual Machine linux      |vmli      |
+|Virtual Machine windows    |vmwi      |
+|Virtual Network            |vnet      |
 
 ## Location names
 
