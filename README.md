@@ -1,22 +1,10 @@
 # armtemplates
 
-A repo with public arm templates to link to azure devops services
-
-# Updates
-
-**20191108**
-
-Reworked standard
-
-* Added owner identifier
-* removed dash between owner identifier and project name
-* project name is now 7 characters
-* Decreased environment to single character
-* Increased resource-type with 1 character (now 4) and reworked short codes to fit standard
+A repo with public arm templates to link to azure devops services and a naming standard.
 
 # Naming conventions
 
-everyname should be limited to 24 characters
+every resource name should be limited to 24 characters.
 
 ```
 <owner-identifier(3)><project-name(7)>-<environment(1)>-<region(4)>-<resource-type(4)>-<instancenumber(1)>
@@ -24,19 +12,19 @@ everyname should be limited to 24 characters
 
 ## Examples
 
-Some examples (resources required for moest webapps)
+Some examples (resources required for most webapps)
 ```
 r44todoapp-t-weeu-rsgp-0
 r44todoapp-t-weeu-wapp-0
 r44todoapp-t-weeu-wasp-0
-r44todoapp-t-weeu-msql-0
 r44todoapp-t-weeu-mdbs-0
+r44todoapp-t-weeu-msql-0
 
 r44todoapp-p-weeu-rsgp-0
 r44todoapp-p-weeu-wapp-0
 r44todoapp-p-weeu-wasp-0
-r44todoapp-p-weeu-msql-0
 r44todoapp-p-weeu-mdbs-0
+r44todoapp-p-weeu-msql-0
 ```
 
 ## project name
@@ -58,6 +46,7 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 |Resource Type              |Short Code|
 |---------------------------|----------|
 |API Management             |apim      |
+|Application Insight        |ains      |
 |App Service                |wapp      |
 |App Service Plan           |wasp      |
 |Azure App function         |fapp      |
@@ -82,9 +71,27 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 |Send Grid                  |sgrd      |
 |Storage Account            |stor      |
 |Subnet                     |snet      |
-|Virtual Machine linux      |vmli      |
-|Virtual Machine windows    |vmwi      |
+|Text Analytics             |txta      |
 |Virtual Network            |vnet      |
+
+**Exceptions**
+
+|Resource Type              |Short Code|
+|---------------------------|----------|
+|Virtual Machine windows    |vm        |
+|Virtual Machine linux      |vm        |
+
+## Virtual machines
+
+The VM Name must be between 4 and 12 characters long and contain letters, numbers and hyphens only.
+
+```
+projectdvm0
+projectdvm1
+projecttvm0
+projectavm0
+projectpvm0
+```
 
 ## Location names
 
@@ -104,6 +111,37 @@ Also some shortcodes for location names
 |West US             |wus1      |
 |West US 2           |wus2      |
 |West Central US     |wcus      |
+
+
+# CHANGELOG
+
+[20200515]
+* [Changed] resource names. All virtualmachines are now `vm`
+* [Changed] resource names. Public Ip Address changed from `pipx` to `pipa`
+
+[20191108]
+* [Changed] standard
+* [Removed] dash between owner identifier and project name
+* [Added] owner identifier
+* [Changed] project name. Now 7 characters
+* [Changed] environment. Decreased to single character
+* [Changed] resource-type. Increased with 1 character (now 4) and reworked short codes to fit standard
+
+[Unchanged]
+* Keep actual version numbers for the standard
+
+**Changelog standard**
+
+Based on (https://keepachangelog.com/en/1.0.0/)[Keep a changelog]
+
+Types of changes
+* [Added] for new features.
+* [Changed] for changes in existing functionality.
+* [Deprecated] for soon-to-be removed features.
+* [Removed] for now removed features.
+* [Fixed] for any bug fixes.
+* [Security] in case of vulnerabilities.
+
 
 # Notes
 
