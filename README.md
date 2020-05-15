@@ -129,7 +129,7 @@ Also some shortcodes for location names
 
 [Unchanged]
 * Keep actual version numbers for the standard
-* Contemplate to change `aksx` to `ak8s`
+* Contemplate changing `aksx` to `ak8s`
 
 **Changelog standard**
 
