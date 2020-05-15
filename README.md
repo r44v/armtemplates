@@ -53,7 +53,7 @@ I got inspiration from (https://www.linkedin.com/pulse/azure-naming-calculator-n
 |Azure Container Instance   |acix      |
 |Azure Container registery  |acrx      |
 |Azure Data Factory         |adfx      |
-|Azure Kubertnetes Service  |aksx      |
+|Azure Kubertnetes Service  |ak8s      |
 |Azure MySQL Database       |msql      |
 |Azure MySQL Server         |mdbs      |
 |Azure Postgres Database    |psql      |
@@ -129,6 +129,7 @@ Also some shortcodes for location names
 
 [Unchanged]
 * Keep actual version numbers for the standard
+* Contemplate to change `aksx` to `ak8s`
 
 **Changelog standard**
 
